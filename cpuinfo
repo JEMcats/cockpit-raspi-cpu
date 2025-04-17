@@ -1,0 +1,32 @@
+#!/bin/bash
+# Outputs JSON with CPU frequency and temperature info
+
+echo -n '{ "cpus": ['
+
+first=1
+for cpu in /sys/devices/system/cpu/cpu[0-9]*; do
+  [ -d "$cpu" ] || continue
+  cpuid=$(basename "$cpu")
+  freqdir="$cpu/cpufreq"
+  if [ -d "$freqdir" ]; then
+    cur=$(cat "$freqdir/scaling_cur_freq" 2>/dev/null)
+    min=$(cat "$freqdir/cpuinfo_min_freq" 2>/dev/null)
+    max=$(cat "$freqdir/cpuinfo_max_freq" 2>/dev/null)
+  else
+    cur="N/A"; min="N/A"; max="N/A"
+  fi
+
+  # Try to get temperature (Raspberry Pi: /sys/class/thermal/thermal_zone0/temp)
+  if [ -f /sys/class/thermal/thermal_zone0/temp ]; then
+    temp=$(cat /sys/class/thermal/thermal_zone0/temp)
+    temp=$(awk "BEGIN {print $temp/1000}")
+  else
+    temp="N/A"
+  fi
+
+  [ $first -eq 0 ] && echo -n ','
+  first=0
+  echo -n "{\"id\":\"$cpuid\",\"cur_freq\":\"$cur\",\"min_freq\":\"$min\",\"max_freq\":\"$max\",\"temp\":\"$temp\"}"
+done
+
+echo ']}'

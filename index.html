@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RasPi CPU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Raspberry Pi CPU Monitor</h1>
+        <label for="refresh-rate">Refresh Rate:</label>
+        <select id="refresh-rate">
+            <option value="5000">Slow (5s)</option>
+            <option value="1000" selected>Medium (1s)</option>
+            <option value="500">Fast (0.5s)</option>
+        </select>
+        <div id="cpu-table">Loading...</div>
+    </div>
+
+    <script src="../base1/cockpit.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
