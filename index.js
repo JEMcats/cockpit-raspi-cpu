@@ -2,7 +2,7 @@ let refreshInterval = 1000; // default 1s
 let intervalId = null;
 
 function fetchCpuInfo() {
-  cockpit.spawn(["/usr/share/cockpit/raspi-cpu/cpuinfo"])
+  cockpit.spawn(["/usr/share/cockpit/cockpit-raspi-cpu/cpuinfo"])
     .then(function (data) {
       const info = JSON.parse(data);
       renderTable(info.cpus);
