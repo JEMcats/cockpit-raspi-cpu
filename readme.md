@@ -12,6 +12,10 @@ A Cockpit plugin for Raspberry Pi that shows detailed CPU information, including
 - Easy install script
 
 ## Installation
+Run:
+```
+git clone https://github.com/JEMcats/cockpit-raspi-cpu.git && cd cockpit-raspi-cpu && ./install.sh
+```
 
 ## License
 This project is licensed under the GPL-3.0 license.
