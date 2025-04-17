@@ -23,6 +23,20 @@ Run:
 sudo rm -rf /usr/share/cockpit/cockpit-raspi-cpu
 ```
 
+## Support
+For questions open a discussion.
+
+For support, reports, or requests open an issue.
+
+## Contributing
+Fork the ``dev`` branch.
+
+Make your changes in your fork.
+
+Fill out the pull request form.
+
+Open a pull request.
+
 ## License
 This project is licensed under the GPL-3.0 license.
 
@@ -32,3 +46,4 @@ You may:
 - Provide credit to the original author (Your Name or Username).
 
 No closed-source forks or redistributions allowed.
+
